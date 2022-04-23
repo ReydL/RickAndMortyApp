@@ -9,7 +9,16 @@ class CharactersPageState extends Equatable{
 
 class CharactersPageInitialState extends CharactersPageState{}
 
-class CharactersPageLoadingState extends CharactersPageState{}
+class CharactersPageLoadingState extends CharactersPageState{
+
+  final List<CharacterEntity> previousCharacters;
+
+  CharactersPageLoadingState({required this.previousCharacters});
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [previousCharacters];
+}
 
 class CharactersPageLoadedState extends CharactersPageState{
 

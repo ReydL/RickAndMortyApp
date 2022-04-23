@@ -7,6 +7,7 @@ import 'package:test_app/domain/repositories/character_repository.dart';
 import 'package:test_app/domain/repositories/episode_repository.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:test_app/domain/usecases/characters/filter_character.dart';
 import 'package:test_app/domain/usecases/characters/get_all_characters.dart';
 import 'package:test_app/domain/usecases/characters/search_character.dart';
 import 'package:test_app/domain/usecases/episodes/get_all_episodes.dart';
@@ -25,6 +26,7 @@ Future<void> setup() async{
   sl.registerLazySingleton(() => GetAllEpisodes());
   sl.registerLazySingleton(() => GetAllCharacters());
   sl.registerLazySingleton(() => SearchCharacter());
+  sl.registerLazySingleton(() => FilterCharacter());
 
 
   sl.registerLazySingleton(() => http.Client());

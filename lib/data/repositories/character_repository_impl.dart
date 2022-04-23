@@ -9,9 +9,8 @@ class CharacterRepositoryImpl implements CharacterRepository{
 
   CharacterRepositoryImpl() : characterDataSource = sl();
   @override
-  Future<List<CharacterEntity>> filterCharacter() {
-    // TODO: implement filterCharacter
-    throw UnimplementedError();
+  Future<List<CharacterEntity>> filterCharacter(String gender, String status) async{
+    return await characterDataSource.filterCharacters(gender, status);
   }
 
   @override

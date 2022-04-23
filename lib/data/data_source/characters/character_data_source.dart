@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 abstract class CharacterDataSource{
   Future<List<CharacterModel>> getAllCharacters(int page);
   Future<List<CharacterModel>> searchCharacter(String query);
+  Future<List<CharacterModel>> filterCharacters(String gender, String status);
 }
 
 class CharacterDataSourceImpl implements CharacterDataSource{
@@ -33,6 +34,17 @@ class CharacterDataSourceImpl implements CharacterDataSource{
       final response = await client.get(Uri.parse('https://rickandmortyapi.com/api/character/?name=$query'), headers: {'Content-Type' : 'application/json'});
       final characters = json.decode(response.body);
       print('request');
+      return (characters['results'] as List).map((episode) => CharacterModel.fromJson(episode)).toList();
+    } catch(_){
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<List<CharacterModel>> filterCharacters(String gender, String status) async{
+    try{
+      final response = await client.get(Uri.parse('https://rickandmortyapi.com/api/character/?gender=$gender' + '&status=$status'));
+      final characters = json.decode(response.body);
       return (characters['results'] as List).map((episode) => CharacterModel.fromJson(episode)).toList();
     } catch(_){
       throw ServerException();

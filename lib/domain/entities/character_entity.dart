@@ -8,7 +8,7 @@ class CharacterEntity extends Equatable {
   final String name;
   final String status;
   final String species;
-  final String? type;
+  final String type;
   final String gender;
   final OriginEntity origin;
   final LocationEntity location;

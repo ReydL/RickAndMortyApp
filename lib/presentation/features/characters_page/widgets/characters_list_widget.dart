@@ -41,11 +41,13 @@ class CharactersListWidget extends StatelessWidget {
           );
         }
         if(state is CharactersPageLoadingState){
+          characters = state.previousCharacters;
           isLoading = true;
         }
         if(state is CharactersPageLoadedState){
-          characters.addAll(state.characters);
+          characters = state.characters;
         }
+
 
         return ListView.separated(
             controller: _scrollController,

@@ -10,7 +10,7 @@ class CharacterModel extends CharacterEntity {
       required String name,
       required String status,
       required String species,
-      required String? type,
+      required String type,
       required String gender,
       required origin,
       required location,

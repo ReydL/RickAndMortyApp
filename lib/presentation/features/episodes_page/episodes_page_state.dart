@@ -9,7 +9,11 @@ class EpisodesPageState extends Equatable{
 
 class EpisodesPageInitialState extends EpisodesPageState{}
 
-class EpisodesPageLoadingState extends EpisodesPageState{}
+class EpisodesPageLoadingState extends EpisodesPageState{
+  final List<EpisodeEntity> previousEpisodes;
+
+  EpisodesPageLoadingState({required this.previousEpisodes});
+}
 
 class EpisodesPageLoadedState extends EpisodesPageState{
   final List<EpisodeEntity> episodes;
