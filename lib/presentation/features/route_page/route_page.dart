@@ -33,7 +33,6 @@ class _RoutePageState extends State<RoutePage> {
             ],
             currentIndex: state.index,
             onTap: (index) {
-              print(index);
               if (index == 0) {
                 bloc.getNavBarItem(NavBarItem.characters);
               } else if (index == 1) {
@@ -45,9 +44,9 @@ class _RoutePageState extends State<RoutePage> {
       ),
       body: BlocBuilder<PageRouteCubit, PageRouteState>(
         builder: (context, state) {
-          if (state.index == 0) {
+          if (state.navbarItem == NavBarItem.characters) {
             return const CharactersPage();
-          } else if (state.index == 1) {
+          } else if (state.navbarItem == NavBarItem.episodes) {
             return const EpisodesPage();
           } else {
             return Container();
