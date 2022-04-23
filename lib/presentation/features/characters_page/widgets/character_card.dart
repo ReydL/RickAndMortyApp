@@ -33,7 +33,7 @@ class CharacterCard extends StatelessWidget {
             ),
             Expanded(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
                     character.name,
@@ -59,7 +59,13 @@ class CharacterCard extends StatelessWidget {
                       const SizedBox(
                         width: 5,
                       ),
-                      Text('${character.status} - ${character.species}'),
+                      Expanded(
+                        child: Text('${character.status} - ${character.species}',
+                        textAlign: TextAlign.center,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        softWrap: true,),
+                      ),
                     ],
                   ),
                   const SizedBox(
